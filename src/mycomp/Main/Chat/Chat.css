@@ -1,0 +1,71 @@
+.chat-block {
+  display: flex;
+  height: 100vh;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 70px;
+}
+.chat-body::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-body {
+  scrollbar-width: none;
+}
+
+.sidebar-open {
+  width: calc(97% - 250px);
+  transition: width 0.5s;
+}
+.sidebar-close {
+  width: 97%;
+  transition: width 0.5s;
+}
+
+@media screen and (max-width: 380px) and (min-width: 200px) {
+  .sidebar-open {
+    width: calc(80% + 10px);
+  }
+  .sidebar-close {
+    width: calc(82% + 20px);
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 380px) {
+  .sidebar-open {
+    width: calc(85% + 10px);
+  }
+  .sidebar-close {
+    width: calc(85% + 15px);
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width: 425px) {
+  .sidebar-open {
+    width: calc(90% + 10px);
+  }
+  .sidebar-close {
+    width: calc(90% + 10px);
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  .sidebar-open {
+    width: calc(93% - 240px);
+  }
+  .sidebar-close {
+    width: 94%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .sidebar-open {
+    width: calc(96% - 255px);
+  }
+  .sidebar-close {
+    width: 96%;
+  }
+}

@@ -1,0 +1,42 @@
+.blurr{
+  backdrop-filter: blur(5px);
+}
+.padd {
+  padding: 50px;
+}
+@media screen and (max-width: 350px) {
+  .widthh {
+    width: 100%;
+  }
+  .padd {
+    padding: 6px;
+  }
+}
+@media screen and (max-width: 425px) and (min-width: 350px) {
+  .widthh {
+    width: 100%;
+  }
+  .padd {
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 425px) {
+  .widthh {
+    width: 75%;
+  }
+  .pass {
+    padding: 50px;
+  }
+  .padd {
+    padding: 25px;
+  }
+}
+@media screen and (max-width: 600px) and (min-width: 500px) {
+  .widthh {
+    width: 75%;
+  }
+  .pass {
+    padding: 50px;
+  }
+}
