@@ -4,7 +4,7 @@ import AuthLogIn from "./mycomp/Auth/LogIn/AuthLogIn";
 import Body from "./mycomp/body/Body";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthContext } from "./mycomp/Auth/AuthContext/AuthContext";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 App.propTypes = {
   children: PropTypes.func,
@@ -30,6 +30,7 @@ function App() {
     requestNotificationPermission();
   }, []);
 
+  
   return (
     <>
       <HashRouter>
