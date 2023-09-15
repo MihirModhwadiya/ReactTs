@@ -39,9 +39,6 @@ export default function Header({ handleCall }) {
               alt=""
             />
           </div>
-          <div className="d-flex align-items-center ps-1">
-            <h5 className="text-dark">{curruser.displayName}</h5>
-          </div>
         </div>
       ) : null}
       <br />

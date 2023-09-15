@@ -27,6 +27,7 @@ const Input = () => {
   let storageRef;
   const handleSend = async () => {
     if (img) {
+      console.log("kbgweigbwgbbgwbgbwgbgb -->> " + img);
       if (img.type.startsWith("application/")) {
         console.log(img);
         const fileType = "." + img.name.split(".").pop().toLowerCase();
@@ -59,6 +60,49 @@ const Input = () => {
                 };
                 if (messageType === "application") {
                   messageData.applicationURL = downloadURL;
+                } else {
+                  messageData.imageURL = downloadURL;
+                }
+                messageData.docs = "Docs";
+                await updateDoc(doc(db, "chats", data.chatId), {
+                  messages: arrayUnion(messageData),
+                });
+              }
+            );
+          }
+        );
+      } else if (img.type.startsWith("video/")) {
+        console.log(img);
+        const fileType = "." + img.name.split(".").pop().toLowerCase();
+
+        storageRef = ref(storage, uuid() + fileType);
+        const uploadTask = uploadBytesResumable(storageRef, img);
+
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+          },
+          (error) => {
+            alert("Error uploading file: " + error.message);
+          },
+          () => {
+            getDownloadURL(uploadTask.snapshot.ref).then(
+              async (downloadURL) => {
+                console.log(img.type);
+                const messageType = img.type.startsWith("video/")
+                  ? "video"
+                  : "image";
+                const messageData = {
+                  id: uuid(),
+                  text,
+                  senderId: isAuth.uid,
+                  date: Timestamp.now(),
+                };
+                if (messageType === "video") {
+                  messageData.videoURL = downloadURL;
                 } else {
                   messageData.imageURL = downloadURL;
                 }

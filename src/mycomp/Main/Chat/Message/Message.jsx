@@ -4,7 +4,7 @@ import { ChatContext } from "../ChatContext/ChatContext";
 import { pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFile } from "@fortawesome/free-solid-svg-icons";
+import { faFile, faVideo } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -80,6 +80,16 @@ export default function Message({ message }) {
             className="message-pdf border border-3 bg-dark bg-opacity-25 text-decoration-none"
           >
             <FontAwesomeIcon className="p-3 px-5" icon={faFile} />
+          </a>
+        )}
+        {message.videoURL && (
+          <a
+            href={message.videoURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="message-pdf border border-3 bg-dark bg-opacity-25 text-decoration-none"
+          >
+            <FontAwesomeIcon className="p-3 px-5" icon={faVideo} />
           </a>
         )}
         {message.senderId === isAuth.uid ? (

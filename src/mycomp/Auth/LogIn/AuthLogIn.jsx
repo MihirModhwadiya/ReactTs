@@ -61,10 +61,10 @@ const Authcomp = () => {
               Sign In
             </button>
           </div>
-          <div className="text-center d-flex justify-content-center">
+          <div className="text-center d-flex justify-content-center text-light">
             <p>
               Create Account?
-              <Link to="/Authcomp" className="text-light">Sign Up</Link>
+              <Link to="/Authcomp" className="text-light text-decoration-none"> Sign Up</Link>
             </p>
           </div>
         </form>
