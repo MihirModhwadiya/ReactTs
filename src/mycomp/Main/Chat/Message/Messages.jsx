@@ -22,7 +22,7 @@ const Messages = () => {
   }, [data.chatId]);
 
   useEffect(() => {
-    // Scroll to the last message when the component loads or when messages update
+    // scroll to the last message when the component loads or when messages update
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView();
     }
